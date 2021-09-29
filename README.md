@@ -40,3 +40,14 @@ Pillow==8.3.2
 ```
 
 ## Train
+Run the following code to train with MNIST dataset  
+```bash
+python train_mnist.py
+```
+
+Run the following code to train with the anime dataset  
+```bash
+python train_anime.py
+```
+
+By default, the scripts should output training results and synthesized images in a `results` folder.
