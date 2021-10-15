@@ -12,7 +12,7 @@ The root folder should be structured as follows:
 ```
 📁 root/
   ├─ 📁 dataset/
-  |  ├─ 📄 mnist.npz
+  |  ├─ 📚 mnist.npz
   |  └─ 📚 archive.zip
   ├─ 📄 train_anime.py
   └─ 📄 train_mnist.py
