@@ -1,17 +1,9 @@
 # Image Generation with VAE
- Reconstruct Images with a Variational Auto Encoder
+ Reconstruct Images with a Variational AutoEncoder
 
-## Instructions
-Implement a Variational Autoencoder (VAE) to reconstruct images with the datasets provided.
+## About the Project
+This model is trained with two datasets, the MNIST dataset, and the Anime faces dataset. The VAE for MNIST is first converted from grayscale to binary, then trained with Binary Cross Entropy as its loss function. The Anime faces dataset is normalized to 0~1, and trained with Mean Square Error as its loss function.
 
-1. Show the learning curves and some samples of the reconstructed images.
-2. Sample the prior p(z) and use the latent codes z to synthesize some examples when your model is well-trained.
-3. Show the synthesized images based on the interpolation of two latent codes z between two real samples.
-4. Multiply the Kullback-Leiblier (KL) term with a scale λ and tune λ (e.g. λ = 0 and λ = 100) then show the results based on steps 1, 2, 3.
-
-Hints:
-* Convert grayscale images to binary first.
-* Use Binary Cross Entropy as the loss function with binary data, and Mean Square Error with real value data.
 ## Requirements
 MNIST dataset: https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz  
 Anime Faces Dataset: https://www.kaggle.com/soumikrakshit/anime-faces  
@@ -39,7 +31,8 @@ torchvision==0.9.0
 Pillow==8.3.2
 ```
 
-## Train
+## Usage
+### Train
 Run the following code to train with MNIST dataset  
 ```bash
 python train_mnist.py
@@ -51,3 +44,24 @@ python train_anime.py
 ```
 
 By default, the scripts should output training results and synthesized images in a `results` folder.
+
+### Parameters
+Global parameters can be tinkered in the script:
+```python
+PATH_ZIP = "path/to/dataset.zip"
+DIR_OUT = "output/image/directory"
+
+EPOCHS          # epochs
+LR              # learning rate
+BATCH_SIZE      # batch size
+SPLIT_PERCENT   # Percantage of the dataset (0~1) to be split for training and testing
+LOG_INT         # Interval for outputting testing images
+
+LAMBDA          # Kullback-Leiblier (KL) multiplier λ
+LAT_DIM         # Latent space dimension size
+```
+## Results
+| Dataset | Fake Images | Interpolation between 4 latent codes |
+|:--:|:--:|:--:|
+| MNIST | ![mni_fake](https://github.com/yuchen071/Image-Generation-with-VAE/blob/main/results/mnist/lambda_1_fake.png) | ![mni_int](https://github.com/yuchen071/Image-Generation-with-VAE/blob/main/results/mnist/lambda_1_interp.png) |
+| Anime | ![ani_fake](https://github.com/yuchen071/Image-Generation-with-VAE/blob/main/results/anime/lambda_1_fake.png) | ![ani_int](https://github.com/yuchen071/Image-Generation-with-VAE/blob/main/results/anime/lambda_1_interp.png) |
