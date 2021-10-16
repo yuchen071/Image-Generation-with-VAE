@@ -1,8 +1,11 @@
 # Image Generation with VAE
- Reconstruct Images with a Variational AutoEncoder
+This project is trained with two datasets, the MNIST dataset, and the Anime faces dataset. The VAE for MNIST is first converted from grayscale to binary, then trained with Binary Cross Entropy as its loss function. The Anime faces dataset is normalized to 0~1, and trained with Mean Square Error as its loss function.
 
-## About the Project
-This model is trained with two datasets, the MNIST dataset, and the Anime faces dataset. The VAE for MNIST is first converted from grayscale to binary, then trained with Binary Cross Entropy as its loss function. The Anime faces dataset is normalized to 0~1, and trained with Mean Square Error as its loss function.
+## Results
+| Dataset | Fake Images | Interpolation between 4 latent codes |
+|:--:|:--:|:--:|
+| MNIST | ![mni_fake](https://github.com/yuchen071/Image-Generation-with-VAE/blob/main/results/mnist/lambda_1_fake.png) | ![mni_int](https://github.com/yuchen071/Image-Generation-with-VAE/blob/main/results/mnist/lambda_1_interp.png) |
+| Anime | ![ani_fake](https://github.com/yuchen071/Image-Generation-with-VAE/blob/main/results/anime/lambda_1_fake.png) | ![ani_int](https://github.com/yuchen071/Image-Generation-with-VAE/blob/main/results/anime/lambda_1_interp.png) |
 
 ## Requirements
 MNIST dataset: https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz  
@@ -60,8 +63,3 @@ LOG_INT         # Interval for outputting testing images
 LAMBDA          # Kullback-Leiblier (KL) multiplier λ
 LAT_DIM         # Latent space dimension size
 ```
-## Results
-| Dataset | Fake Images | Interpolation between 4 latent codes |
-|:--:|:--:|:--:|
-| MNIST | ![mni_fake](https://github.com/yuchen071/Image-Generation-with-VAE/blob/main/results/mnist/lambda_1_fake.png) | ![mni_int](https://github.com/yuchen071/Image-Generation-with-VAE/blob/main/results/mnist/lambda_1_interp.png) |
-| Anime | ![ani_fake](https://github.com/yuchen071/Image-Generation-with-VAE/blob/main/results/anime/lambda_1_fake.png) | ![ani_int](https://github.com/yuchen071/Image-Generation-with-VAE/blob/main/results/anime/lambda_1_interp.png) |
