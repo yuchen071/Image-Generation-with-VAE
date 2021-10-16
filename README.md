@@ -34,7 +34,7 @@ torchvision==0.9.0
 Pillow==8.3.2
 ```
 
-## Usage
+## How to use
 ### Train
 Run the following code to train with MNIST dataset  
 ```bash
