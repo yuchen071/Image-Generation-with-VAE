@@ -25,13 +25,13 @@ Original Anime Dataset Source: https://github.com/bchao1/Anime-Face-Dataset
 
 ### Dependencies  
 ```
-numpy==1.19.2
-torch==1.8.0
-imageio==2.9.0
-matplotlib==3.3.4
-gym==0.19.0
-tqdm==4.62.2
-Pillow==8.4.0
+matplotlib==3.5.1
+numpy==1.22.2
+Pillow==9.0.1
+torch==1.10.2+cu102
+torchvision==0.11.3+cu102
+tqdm==4.62.3
+zipp==3.7.0
 ```
 
 ## How to use

@@ -18,8 +18,8 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # device = torch.device("cpu")
 
 #%% Default params
-PATH_TRAIN = "dataset/mnist.npz"
-DIR_OUT = "results/mnist"
+PATH_TRAIN = "dataset/TibetanMNIST.npz"
+DIR_OUT = "results/TibetanMNIST"
 
 BATCH_SIZE = 600
 EPOCHS = 200
@@ -104,7 +104,7 @@ def init_weights(m):
 #%%
 def train(npz_data):
 
-    data_train = trainDataset(npz_data['x_train'])
+    data_train = trainDataset(npz_data['image'])
     num_train = int(len(data_train) * SPLIT_PERCENT)
     data_train, data_valid = random_split(data_train, [num_train, len(data_train) - num_train])
     # kl_weight_train, kl_weight_valid = BATCH_SIZE/len(data_train), BATCH_SIZE/len(data_valid)
