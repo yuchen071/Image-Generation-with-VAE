@@ -1,3 +1,4 @@
+#%%
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -30,7 +31,7 @@ SPLIT_PERCENT = 0.9
 LOG_INT = 10    # log interval
 
 LAMBDA = 1
-LAT_DIM = 8
+LAT_DIM = 10
 
 if not os.path.exists(DIR_OUT):
     os.makedirs(DIR_OUT)
@@ -163,7 +164,6 @@ def train(zip_path):
     net.to(device)
     net.apply(init_weights)
     criterion = nn.MSELoss(reduction="sum")
-    # criterion = nn.L1Loss(reduction="sum")
     optimizer = optim.Adam(net.parameters(), lr=LR)
 
     sleep(0.3)
@@ -193,7 +193,7 @@ def train(zip_path):
             rl_post = "%3.4f" % (recon_loss.item()/image.size(0))
             kl_post = "%3.4f" % (kl_loss.item()/image.size(0))
             tl_post = "%3.4f" % (loss.item()/image.size(0))
-            t.set_postfix({"Recon Loss": rl_post, "KLD": kl_post, "Total Loss": tl_post})
+            t.set_postfix_str(f"Recon Loss: {rl_post}, KLD: {kl_post}, Total Loss: {tl_post}")
             t.update(0)
 
         # validation
